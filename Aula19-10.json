@@ -1,0 +1,391 @@
+[
+    {
+        "id": "c5c333721a2f0cb3",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ddc7ff56af835d84",
+        "type": "debug",
+        "z": "c5c333721a2f0cb3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d83a39338ac83287",
+        "type": "debug",
+        "z": "c5c333721a2f0cb3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "847eb20bba640faa",
+        "type": "debug",
+        "z": "c5c333721a2f0cb3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "9cf3d6eb0b836e35",
+        "type": "ui_audio",
+        "z": "c5c333721a2f0cb3",
+        "name": "",
+        "voice": "",
+        "always": "",
+        "x": 660,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "72023645c79229b2",
+        "type": "function",
+        "z": "c5c333721a2f0cb3",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 460,
+        "wires": [
+            [
+                "5f65e719cbcdd2c3",
+                "847eb20bba640faa"
+            ]
+        ]
+    },
+    {
+        "id": "2506757fe4f09afd",
+        "type": "watson-text-to-speech",
+        "z": "c5c333721a2f0cb3",
+        "name": "",
+        "lang": "",
+        "langhidden": "",
+        "langcustom": "",
+        "langcustomhidden": "",
+        "voice": "",
+        "voicehidden": "",
+        "format": "audio/wav",
+        "password": "",
+        "apikey": "",
+        "payload-response": false,
+        "service-endpoint": "",
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "ddc7ff56af835d84",
+                "9cf3d6eb0b836e35",
+                "72023645c79229b2"
+            ]
+        ]
+    },
+    {
+        "id": "2de25a59bb92e957",
+        "type": "telegrambot-command",
+        "z": "c5c333721a2f0cb3",
+        "name": "",
+        "bot": "",
+        "command": "",
+        "commandType": "str",
+        "commandCase": false,
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "10595c69f2ddcce6"
+            ]
+        ]
+    },
+    {
+        "id": "10595c69f2ddcce6",
+        "type": "function",
+        "z": "c5c333721a2f0cb3",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 340,
+        "wires": [
+            [
+                "2506757fe4f09afd"
+            ]
+        ]
+    },
+    {
+        "id": "5f65e719cbcdd2c3",
+        "type": "telegrambot-payload",
+        "z": "c5c333721a2f0cb3",
+        "name": "",
+        "bot": "",
+        "chatId": "",
+        "sendMethod": "sendMessage",
+        "payload": "",
+        "x": 790,
+        "y": 440,
+        "wires": [
+            [
+                "d83a39338ac83287"
+            ]
+        ]
+    },
+    {
+        "id": "2f0bbdbe98c5caf3",
+        "type": "telegrambot-command",
+        "z": "c5c333721a2f0cb3",
+        "name": "Telegram Receiver",
+        "bot": "",
+        "command": "",
+        "commandType": "str",
+        "commandCase": false,
+        "x": 150,
+        "y": 900,
+        "wires": [
+            [
+                "9adf626cd2ea8b26",
+                "79960c2a08bd0a63",
+                "f0c90a816ae13f47"
+            ]
+        ]
+    },
+    {
+        "id": "9adf626cd2ea8b26",
+        "type": "debug",
+        "z": "c5c333721a2f0cb3",
+        "name": "Entrada",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "ad26d7c6bf96bfcd",
+        "type": "debug",
+        "z": "c5c333721a2f0cb3",
+        "name": "Saida Wa",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "616b8a2cfb602037",
+        "type": "debug",
+        "z": "c5c333721a2f0cb3",
+        "name": "Entrada TTS",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "72d04b99a0a54eb5",
+        "type": "debug",
+        "z": "c5c333721a2f0cb3",
+        "name": "Retorno TTS",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "79960c2a08bd0a63",
+        "type": "function",
+        "z": "c5c333721a2f0cb3",
+        "name": "ProcIN WA",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 820,
+        "wires": [
+            [
+                "41315921e8b716da"
+            ]
+        ]
+    },
+    {
+        "id": "87369dcfac3a6eda",
+        "type": "function",
+        "z": "c5c333721a2f0cb3",
+        "name": "ProcOUT WA",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 840,
+        "wires": [
+            [
+                "616b8a2cfb602037",
+                "b94ef282f41aa26c"
+            ]
+        ]
+    },
+    {
+        "id": "4e66fe1ca57cde01",
+        "type": "function",
+        "z": "c5c333721a2f0cb3",
+        "name": "ProcOUT TTS",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 1020,
+        "wires": [
+            [
+                "72d04b99a0a54eb5",
+                "3c689e83595080d1"
+            ]
+        ]
+    },
+    {
+        "id": "f0c90a816ae13f47",
+        "type": "function",
+        "z": "c5c333721a2f0cb3",
+        "name": "Acesso não autorizado",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1180,
+        "wires": [
+            [
+                "3c689e83595080d1"
+            ]
+        ]
+    },
+    {
+        "id": "3c689e83595080d1",
+        "type": "telegrambot-notify",
+        "z": "c5c333721a2f0cb3",
+        "name": "Telegram Sender",
+        "bot": "",
+        "chatId": "",
+        "message": "",
+        "parseMode": "",
+        "x": 970,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "41315921e8b716da",
+        "type": "watson-conversation-v1",
+        "z": "c5c333721a2f0cb3",
+        "name": "WA",
+        "workspaceid": "",
+        "multiuser": false,
+        "context": true,
+        "empty-payload": false,
+        "service-endpoint": "",
+        "timeout": "",
+        "optout-learning": false,
+        "x": 550,
+        "y": 840,
+        "wires": [
+            [
+                "ad26d7c6bf96bfcd",
+                "87369dcfac3a6eda"
+            ]
+        ]
+    },
+    {
+        "id": "b94ef282f41aa26c",
+        "type": "watson-text-to-speech",
+        "z": "c5c333721a2f0cb3",
+        "name": "TTS",
+        "lang": "",
+        "langhidden": "",
+        "langcustom": "",
+        "langcustomhidden": "",
+        "voice": "",
+        "voicehidden": "",
+        "format": "audio/wav",
+        "password": "",
+        "apikey": "",
+        "payload-response": false,
+        "service-endpoint": "",
+        "x": 490,
+        "y": 1020,
+        "wires": [
+            [
+                "4e66fe1ca57cde01"
+            ]
+        ]
+    }
+]
